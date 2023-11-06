@@ -118,7 +118,7 @@ describe('Testes', () => {
 
     await waitFor(() => fireEvent.click(getByTestId('add-quantity-1')))
 
-    await waitFor(() => getByTestId('R$1200'))
+    await waitFor(() => getByTestId('R$1.200'))
   })
 
   it('Should must remove quantity of the product to the cart', async () => {
@@ -147,7 +147,7 @@ describe('Testes', () => {
       timeout: 1000,
     })
 
-    await waitFor(() => getByTestId('R$1200'), {
+    await waitFor(() => getByTestId('R$1.200'), {
       timeout: 1000,
     })
   })

@@ -37,7 +37,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <p>{product.name}</p>
         </Name>
         <Price>
-          <p>{`R$${parseFloat(product.price).toFixed(0)}`}</p>
+          <p>{`R$${parseFloat(product.price)
+            .toFixed(0)
+            .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`}</p>
         </Price>
       </DivItem>
       <Description>

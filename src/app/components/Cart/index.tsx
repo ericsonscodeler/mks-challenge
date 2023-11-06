@@ -79,8 +79,12 @@ const Cart: React.FC<ICart> = ({ isOpen }) => {
             </DivQuantity>
             <div>
               <h4
-                data-testid={`R$${parseFloat(product.price).toFixed(0)}`}
-              >{`R$${parseFloat(product.price).toFixed(0)}`}</h4>
+                data-testid={`R$${parseFloat(product.price)
+                  .toFixed(0)
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`}
+              >{`R$${parseFloat(product.price)
+                .toFixed(0)
+                .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`}</h4>
             </div>
           </Card>
         ))}
@@ -90,7 +94,9 @@ const Cart: React.FC<ICart> = ({ isOpen }) => {
           <span>Total:</span>
         </div>
         <div>
-          <span>{`R$${total.toFixed(0)}`}</span>
+          <span>{`R$${total
+            .toFixed(0)
+            .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`}</span>
         </div>
       </TotalPrice>
       <FinalizePurchase>
