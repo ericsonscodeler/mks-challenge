@@ -31,7 +31,7 @@ const Cart: React.FC<ICart> = ({ isOpen }) => {
   }, 0)
 
   return (
-    <Container isOpen={isOpen} data-testid="sidebar-cart">
+    <Container open={isOpen} data-testid="sidebar-cart">
       <HeaderCart>
         <span>Carrinho de Compra</span>
         <CloseButton onClick={() => toggleCart(false)}>

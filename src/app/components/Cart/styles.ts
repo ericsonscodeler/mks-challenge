@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-interface IContainer {
-  isOpen: boolean
+interface IContainerProps {
+  open: boolean
 }
 
-export const Container = styled.div<IContainer>`
+export const Container = styled.div<IContainerProps>`
   position: fixed;
   top: 0;
-  right: ${(props) => (props.isOpen ? '0' : '-100%')};
+  right: ${(props) => (props.open ? '0' : '-100%')};
   width: 420px;
   height: 100%;
   background-color: ${(props) => props.theme.primary};
