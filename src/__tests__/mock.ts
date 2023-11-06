@@ -1,15 +1,3 @@
-import { renderHook } from '@testing-library/react'
-import useCartStore, { CartStore } from '@/utils/cartStore'
-
-export const mockState: CartStore = {
-  cart: [],
-  isOpen: false,
-  addToCart: jest.fn(),
-  removeFromCart: jest.fn(),
-  toggleCart: jest.fn(),
-  updateProductQuantity: jest.fn(),
-}
-
 export const products = [
   {
     id: 1,

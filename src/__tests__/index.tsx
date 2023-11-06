@@ -44,7 +44,7 @@ describe('Testes', () => {
 
   it('Should add products to cart', async () => {
     mock.onGet('/products').reply(200, products)
-    const { getByTestId, getByText } = render(
+    const { getByTestId } = render(
       <Provider>
         <Home />
       </Provider>,
