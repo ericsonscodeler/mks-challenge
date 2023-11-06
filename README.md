@@ -15,7 +15,7 @@ Features:
 git clone https://github.com/ericsonscodeler/mks-challenge.git
 ```
 
-### Projeto MKS-CHALLENGE
+### Desafio
 
 https://github.com/MKS-desenvolvimento-de-sistemas/mks-frontend-challenge/tree/main
 
