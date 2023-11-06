@@ -1,12 +1,13 @@
 import React from 'react'
-import ProductCard from '../ProductCard'
+import { Container } from './styles'
 
 import { api } from '@/utils/axios'
 
-import { Container } from './styles'
 import { useQuery } from '@tanstack/react-query'
 import { IProduct, IResponse } from '@/app/types'
+import ProductCard from '../ProductCard'
 import ProductCardSkeleton from '../ProductCard/Loading'
+import Error from '../Error'
 
 const Content: React.FC = () => {
   const { data, isLoading, isFetching, isError } = useQuery<IResponse>({
@@ -25,17 +26,10 @@ const Content: React.FC = () => {
     queryKey: ['products'],
   })
 
-  console.log(data?.products)
-
   return (
     <Container>
-      {isError && (
-        <div>
-          <p>Error</p>
-        </div>
-      )}
       {(isLoading || isFetching) && <ProductCardSkeleton />}
-
+      {isError && <Error />}
       {data &&
         data?.products?.map((product: IProduct) => (
           <ProductCard product={product} key={product.id} />

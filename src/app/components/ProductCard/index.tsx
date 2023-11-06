@@ -23,7 +23,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     addToCart(product)
   }
   return (
-    <Container>
+    <Container data-testid={product.id}>
       <DivImg>
         <Image
           src={product.photo}
@@ -33,7 +33,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         />
       </DivImg>
       <DivItem>
-        <Name>
+        <Name data-testid={product.name}>
           <p>{product.name}</p>
         </Name>
         <Price>
@@ -45,7 +45,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </Description>
       <Purchase onClick={() => handleAddProduct(product)}>
         <ShoppingBag />
-        <p>Comprar</p>
+        <p data-testid={`purchase-${product.id}`}>Comprar</p>
       </Purchase>
     </Container>
   )

@@ -17,8 +17,12 @@ import {
 } from './styles'
 import Image from 'next/image'
 
-const Cart: React.FC = () => {
-  const { cart, toggleCart, isOpen, removeFromCart, updateProductQuantity } =
+interface ICart {
+  isOpen: boolean
+}
+
+const Cart: React.FC<ICart> = ({ isOpen }) => {
+  const { cart, toggleCart, removeFromCart, updateProductQuantity } =
     useCartStore()
   const total = cart.reduce((acc, product) => {
     const productPrice = parseFloat(product.price)
@@ -26,9 +30,8 @@ const Cart: React.FC = () => {
     return acc + productPrice * productQuantity
   }, 0)
 
-  console.log(cart)
   return (
-    <Container isOpen={isOpen}>
+    <Container isOpen={isOpen} data-testid="sidebar-cart">
       <HeaderCart>
         <span>Carrinho de Compra</span>
         <CloseButton onClick={() => toggleCart(false)}>
@@ -37,8 +40,9 @@ const Cart: React.FC = () => {
       </HeaderCart>
       <Content>
         {cart.map((product) => (
-          <Card key={product.id}>
+          <Card key={product.id} data-testid={`cart-product-${product.id}`}>
             <Image width={60} height={60} alt="Product" src={product.photo} />
+
             <RemoveButton onClick={() => removeFromCart(product.id)}>
               <X size={12} />
             </RemoveButton>
@@ -49,6 +53,7 @@ const Cart: React.FC = () => {
               <span>Qtd</span>
               <QuantityDisplay>
                 <div
+                  data-testid={`remove-quantity-${product.id}`}
                   onClick={() => {
                     const newQuantity = product.quantity
                       ? product.quantity - 1
@@ -62,6 +67,7 @@ const Cart: React.FC = () => {
                   <span>{product.quantity || 1}</span>
                 </div>
                 <div
+                  data-testid={`add-quantity-${product.id}`}
                   onClick={() => {
                     const newQuantity = (product.quantity || 1) + 1
                     updateProductQuantity(product.id, newQuantity)
@@ -72,7 +78,9 @@ const Cart: React.FC = () => {
               </QuantityDisplay>
             </DivQuantity>
             <div>
-              <h4>{`R$${parseFloat(product.price).toFixed(0)}`}</h4>
+              <h4
+                data-testid={`R$${parseFloat(product.price).toFixed(0)}`}
+              >{`R$${parseFloat(product.price).toFixed(0)}`}</h4>
             </div>
           </Card>
         ))}

@@ -14,7 +14,7 @@ export default function Home() {
       <GlobalStyles />
       <Header />
       <Content />
-      {isOpen && <Cart />}
+      <Cart isOpen={isOpen} />
     </>
   )
 }
