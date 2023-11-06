@@ -1,6 +1,6 @@
 # Projeto MKS-CHALLENGE
 
-Features:
+Tecnologias:
 
 - Next
 - React
@@ -10,6 +10,8 @@ Features:
 - Zustand
 - Jest e React Testing Library
 
+
+### Clone do projeto.
 
 ```shell
 git clone https://github.com/ericsonscodeler/mks-challenge.git
