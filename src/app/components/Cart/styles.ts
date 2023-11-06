@@ -110,13 +110,14 @@ export const QuantityDisplay = styled.div`
   }
 `
 
-export const DivNumberItems = styled.div``
-
 export const TotalPrice = styled.div`
+  position: absolute;
+  bottom: 70px;
+  width: 100%;
   display: flex;
   justify-content: space-around;
-  margin: 10px 0;
-
+  align-items: center;
+  height: 70px;
   span {
     font-size: 20px;
     font-weight: bold;
