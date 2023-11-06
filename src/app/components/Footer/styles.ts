@@ -11,5 +11,6 @@ export const Container = styled.div`
   span {
     padding: 4px 0;
     font-size: 12px;
+    font-weight: 400px;
   }
 `
