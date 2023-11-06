@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 240px;
-  height: 320px;
+  height: 330px;
   border: 1px solid gray;
   border-radius: 15px;
   box-shadow: gray 0px 1px 4px;
@@ -51,7 +51,6 @@ export const Description = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
-  margin-bottom: 10px;
   p {
     font-size: 10px;
     font-weight: light;
