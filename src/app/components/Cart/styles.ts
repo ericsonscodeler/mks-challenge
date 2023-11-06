@@ -114,7 +114,6 @@ export const DivNumberItems = styled.div``
 
 export const TotalPrice = styled.div`
   display: flex;
-  align-items: center;
   justify-content: space-around;
   margin: 10px 0;
 
